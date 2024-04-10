@@ -11,6 +11,11 @@
         </label>
         <br>
         <label>
+            Description:
+            <input type="text" formControlName="description">
+        </label>
+        <br>
+        <label>
             Required:
             <input type="checkbox" formControlName="required">
         </label>
@@ -20,15 +25,6 @@
             <input type="text" formControlName="type">
         </label> -->
         <br>
-        <label>
-            Min:
-            <input type="number" formControlName="min">
-        </label>
-        <br>
-        <label>
-            Max:
-            <input type="number" formControlName="max">
-        </label>
         <br>
         <label>
             MinLength:
@@ -39,48 +35,12 @@
             MaxLength:
             <input type="number" formControlName="maxLength">
         </label>
-        <br>
-        <label>
-            Pattern:
-            <input type="text" formControlName="pattern">
-        </label>
-        <br>
-        <label>
-            Description:
-            <input type="text" formControlName="description">
-        </label>
-        <br>
-        <label>
-            Disabled:
-            <input type="checkbox" formControlName="disabled">
-        </label>
+
         <br>
         <label>
             Readonly:
             <input type="checkbox" formControlName="readonly">
         </label>
-        <br>
-        <label>
-            Autofocus:
-            <input type="checkbox" formControlName="autofocus">
-        </label>
-        <br>
-        <label>
-            Tabindex:
-            <input type="number" formControlName="tabindex">
-        </label>
-        <br>
-        <div formGroupName="attributes">
-            <label>
-                Autocomplete:
-                <input type="text" formControlName="autocomplete">
-            </label>
-            <br>
-            <label>
-                Spellcheck:
-                <input type="checkbox" formControlName="spellcheck">
-            </label>
-        </div>
     </div>
     <!-- <button type="submit">Submit</button> -->
 </form>
