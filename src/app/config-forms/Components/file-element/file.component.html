@@ -1,0 +1,115 @@
+<h1>File Element</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div formGroupName="templateOptions">
+        <label>
+            Label:
+            <input type="text" formControlName="label">
+        </label>
+        <label>
+            Placeholder:
+            <input type="text" formControlName="placeholder">
+        </label>
+        <label>
+            Required:
+            <input type="checkbox" formControlName="required">
+        </label>
+        <label>
+            Type:
+            <!-- <input type="text"> -->
+            <label for="inputType">Select Input Type:</label>
+            <select   formControlName="type">
+                <option value="">Select an input type</option>
+                <option value="text">Text</option>
+                <option value="password">Password</option>
+                <option value="checkbox">Checkbox</option>
+                <option value="radio">Radio</option>
+                <option value="number">Number</option>
+                <option value="email">Email</option>
+                <option value="tel">Telephone</option>
+                <option value="url">URL</option>
+                <option value="date">Date</option>
+                <option value="time">Time</option>
+                <option value="datetime-local">Datetime Local</option>
+                <option value="month">Month</option>
+                <option value="week">Week</option>
+                <option value="color">Color</option>
+                <option value="range">Range</option>
+                <option value="file">File</option>
+                <option value="hidden">Hidden</option>
+            </select>
+        </label>
+        <label>
+            Min:
+            <input type="number" formControlName="min">
+        </label>
+        <label>
+            Max:
+            <input type="number" formControlName="max">
+        </label>
+        <label>
+            Min Length:
+            <input type="number" formControlName="minLength">
+        </label>
+        <label>
+            Max Length:
+            <input type="number" formControlName="maxLength">
+        </label>
+        <label>
+            Pattern:
+            <input type="text" formControlName="pattern">
+        </label>
+        <label>
+            Description:
+            <input type="text" formControlName="description">
+        </label>
+        <label>
+            Disabled:
+            <input type="checkbox" formControlName="disabled">
+        </label>
+        <label>
+            Readonly:
+            <input type="checkbox" formControlName="readonly">
+        </label>
+        <label>
+            Autofocus:
+            <input type="checkbox" formControlName="autofocus">
+        </label>
+        <label>
+            Tabindex:
+            <input type="number" formControlName="tabindex">
+        </label>
+        <div formGroupName="attributes">
+            <label>
+                Autocomplete:
+                <!-- <input type="text" formControlName="autocomplete"> -->
+                <select formControlName="autocomplete">
+                    <option value="on">On</option>
+                    <option value="off">Off</option>
+                    <option value="username">Username</option>
+                    <option value="password">Password</option>
+                    <option value="new-password">New Password</option>
+                    <option value="current-password">Current Password</option>
+                    <option value="email">Email</option>
+                    <option value="tel">Telephone</option>
+                    <option value="name">Name</option>
+                    <option value="organization-title">Organization Title</option>
+                    <option value="organization">Organization</option>
+                    <option value="street-address">Street Address</option>
+                    <option value="address-line1">Address Line 1</option>
+                    <option value="address-line2">Address Line 2</option>
+                    <option value="address-line3">Address Line 3</option>
+                    <option value="address-level1">Address Level 1</option>
+                    <option value="address-level2">Address Level 2</option>
+                    <option value="address-level3">Address Level 3</option>
+                    <option value="address-level4">Address Level 4</option>
+                    <option value="country">Country</option>
+                </select>
+            </label>
+            <label>
+                Spellcheck:
+                <input type="checkbox" formControlName="spellcheck">
+            </label>
+        </div>
+        <!-- <button type="submit">Submit</button> -->
+    </div>
+</form>

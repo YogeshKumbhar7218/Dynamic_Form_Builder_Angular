@@ -1,0 +1,43 @@
+<form [formGroup]="form">
+    <div formGroupName="templateOptions">
+        <div>
+            <label>Label</label>
+            <input type="text" formControlName="label" placeholder="Label">
+        </div>
+
+        <div>
+            <label>Description</label>
+            <input type="text" formControlName="description" placeholder="Description">
+        </div>
+        <div>
+            <label>Required</label>
+            <input type="checkbox" formControlName="required">
+        </div>
+        <div>
+            <label>Hide Label</label>
+            <input type="checkbox" formControlName="hideLabel">
+        </div>
+
+        <div>
+            <label>Hide Required Marker</label>
+            <input type="checkbox" formControlName="hideRequiredMarker">
+        </div>
+
+        <div>
+            <label>Indeterminate</label>
+            <input type="checkbox" formControlName="indeterminate">
+        </div>
+        <!-- 
+        <div>
+            <label>Disabled</label>
+            <input type="checkbox" formControlName="disabled">
+        </div> -->
+
+        <div>
+            <label>Readonly</label>
+            <input type="checkbox" formControlName="readonly">
+        </div>
+
+        <!-- <button type="submit">Submit</button> -->
+    </div>
+</form>

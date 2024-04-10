@@ -1,0 +1,81 @@
+<form [formGroup]="form">
+    <div formGroupName="templateOptions">
+        <div>
+            <label>Label</label>
+            <input type="text" formControlName="label" placeholder="Label">
+        </div>
+        <div>
+            <label>Placeholder</label>
+            <input type="text" formControlName="placeholder" placeholder="placeholder">
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" formControlName="description" placeholder="Description">
+        </div>
+        <div>
+            <label>Required</label>
+            <input type="checkbox" formControlName="required">
+        </div>
+        <div>
+            <label>Multiple Select</label>
+            <input type="checkbox" formControlName="multiple">
+        </div>
+        <div>
+            <label>Select All Option</label>
+            <input type="text" formControlName="selectAllOption">
+        </div>
+        <div>
+            <label>Hide Label</label>
+            <input type="checkbox" formControlName="hideLabel">
+        </div>
+
+        <div>
+            <label>Hide Required Marker</label>
+            <input type="checkbox" formControlName="hideRequiredMarker">
+        </div>
+        <div>
+            <label>Readonly</label>
+            <input type="checkbox" formControlName="readonly">
+        </div>
+        <button (click)="openAddOptionDialog()">Add New Option</button>
+        <table *ngIf="form.get('templateOptions.options').controls.length > 0">
+            <thead>
+                <tr>
+                    <th>Label</th>
+                    <th>Value</th>
+                    <th>Disabled</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let option of form.get('templateOptions.options').controls; let i = index">
+                    <td>{{ option.value.label }}</td>
+                    <td>{{ option.value.value }}</td>
+                    <td>{{ option.value.disabled ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <button (click)="editOption(i)">Edit</button>
+                        <button (click)="removeOption(i)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <div *ngFor="let option of form.get('templateOptions.options').controls; let i = index">
+            <label [for]="'option_' + i">label: {{ option.value.label }} &nbsp;value:{{ option.value.value }} </label>
+            <input type="radio" [id]="'option_' + i" [value]="option.value.value" [formControl]="option.get('value')">
+            <button (click)="removeOption(i)">Remove</button>
+        </div> -->
+    </div>
+</form>
+
+<!-- Add Option Dialog -->
+<div class="option-dialog" *ngIf="showAddOptionDialog">
+    <h3>Add Option</h3>
+    <input type="text" placeholder="Label" [(ngModel)]="newOptionLabel">
+    <input type="text" placeholder="Value" [(ngModel)]="newOptionValue"><br>
+    <label>Disabled</label>
+    <input type="checkbox" [(ngModel)]="isOptionDisabled">
+    <button *ngIf="updateIndex === (-1)" (click)="addOption()">Add</button>
+    <button *ngIf="updateIndex !== (-1)" (click)="updateOption()">Update</button>
+    <button (click)="cancelAddOption()">Cancel</button>
+</div>

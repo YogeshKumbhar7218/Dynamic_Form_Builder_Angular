@@ -1,0 +1,61 @@
+<h1>Input</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div formGroupName="templateOptions">
+        <label>
+            Label:
+            <input type="text" formControlName="label">
+        </label>
+        <label>
+            Placeholder:
+            <input type="text" formControlName="placeholder">
+        </label>
+        <label>
+            Required:
+            <input type="checkbox" formControlName="required">
+        </label>
+        <label>
+            Type:
+            <!-- <input type="text"> -->
+            <label for="inputType">Select Input Type:</label>
+            <select formControlName="type">
+                <option value="">Select an input type</option>
+                <option *ngFor="let option of inputTypes" [value]="option.value">{{option.label}}</option>
+            </select>
+        </label>
+        <label>
+            Min:
+            <input type="number" formControlName="min">
+        </label>
+        <label>
+            Max:
+            <input type="number" formControlName="max">
+        </label>
+        <label>
+            Min Length:
+            <input type="number" formControlName="minLength">
+        </label>
+        <label>
+            Max Length:
+            <input type="number" formControlName="maxLength">
+        </label>
+        <label>
+            Pattern:
+            <input type="text" formControlName="pattern">
+        </label>
+        <label>
+            Description:
+            <input type="text" formControlName="description">
+        </label>
+        <label>
+            Readonly:
+            <input type="checkbox" formControlName="readonly">
+        </label>
+        <div formGroupName="attributes">
+            <label>
+                Spellcheck:
+                <input type="checkbox" formControlName="spellcheck">
+            </label>
+        </div>
+        <!-- <button type="submit">Submit</button> -->
+    </div>
+</form>

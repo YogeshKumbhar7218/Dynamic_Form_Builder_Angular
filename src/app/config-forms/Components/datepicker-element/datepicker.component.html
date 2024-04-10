@@ -1,0 +1,39 @@
+<h1>DatePicker</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div formGroupName="templateOptions">
+        <label>
+            Label:
+            <input type="text" formControlName="label">
+        </label>
+        <label>
+            Placeholder:
+            <input type="text" formControlName="placeholder">
+        </label>
+        <label>
+            Description:
+            <input type="text" formControlName="description">
+        </label>
+        <!-- <label for="inputType">Select Date Format:
+            <select formControlName="format">
+                <option value="">Select an Date Format</option>
+                <option *ngFor="let option of supportedDateFormats" [value]="option">{{option}}</option>
+
+            </select>
+        </label> -->
+        <label>
+            Required:
+            <input type="checkbox" formControlName="required">
+        </label>
+
+        <label>
+            Disabled:
+            <input type="checkbox" formControlName="disabled">
+        </label>
+        <label>
+            Readonly:
+            <input type="checkbox" formControlName="readonly">
+        </label>
+
+        <!-- <button type="submit">Submit</button> -->
+    </div>
+</form>

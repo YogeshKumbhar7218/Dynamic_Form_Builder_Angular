@@ -1,0 +1,51 @@
+/* form-preview.component.css */
+
+/* Container for the form preview */
+.form-preview-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Form fields */
+.form-preview-field {
+    margin-bottom: 15px;
+}
+
+/* Labels for form fields */
+.form-preview-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input fields */
+.form-preview-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Select fields */
+.form-preview-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button for toggling visibility */
+.toggle-preview-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hide the form preview by default */
+.form-preview-hidden {
+    display: none;
+}
