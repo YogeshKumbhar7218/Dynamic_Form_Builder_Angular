@@ -13,7 +13,7 @@ import { DatepickerComponent } from './config-forms/Components/datepicker-elemen
 // import { TimepickerComponent } from './config-forms/Components/timepicker-element/timepicker.component';
 // import { SliderComponent } from './config-forms/Components/slider-element/slider.component';
 import { ToggleComponent } from './config-forms/Components/toggle-element/toggle.component';
-// import { FileComponent } from './config-forms/Components/file-element/file.component';
+import { FileComponent } from './config-forms/Components/file-element/file.component';
 // import { AutocompleteComponent } from './config-forms/Components/autocomplete-element/autocomplete.component';
 // import { AutocompleteElementModel } from './config-forms/Components/autocomplete-element/autocomplete.model';
 import { InputElementModel } from './config-forms/Components/input-element/input.model';
@@ -25,7 +25,7 @@ import { DatepickerElementModel } from './config-forms/Components/datepicker-ele
 // import { TimepickerElementModel } from './config-forms/Components/timepicker-element/timepicker.model';
 // import { SliderElementModel } from './config-forms/Components/slider-element/slider.model';
 import { ToggleElementModel } from './config-forms/Components/toggle-element/toggle.model';
-// import { FileElementModel } from './config-forms/Components/file-element/file.model';
+import { FileElementModel } from './config-forms/Components/file-element/file.model';
 import { FormlyConverterService } from './service/FormlyConverterService';
 
 interface FormElement {
@@ -59,7 +59,7 @@ export class AppComponent {
     // 'timepicker': TimepickerComponent,
     // 'slider': SliderComponent,
     'toggle': ToggleComponent,
-    // 'file': FileComponent,
+    'file': FileComponent,
     // 'autocomplete': AutocompleteComponent
   }
   // formObjectMapping = {
@@ -86,7 +86,7 @@ export class AppComponent {
     // { type: 'timepicker', label: 'Timepicker' },
     // { type: 'slider', label: 'Slider' },
     { type: 'toggle', label: 'Switch' },
-    // { type: 'file', label: 'File Upload' },
+    { type: 'file', label: 'File Upload' },
     // { type: 'autocomplete', label: 'Autocomplete' },
     // Add more form field types here
   ];
@@ -161,8 +161,8 @@ export class AppComponent {
       //   return (new SliderElementModel(this.formBuilder))
       case 'toggle':
         return (new ToggleElementModel(this.formBuilder))
-      // case 'file':
-      //   return (new FileElementModel(this.formBuilder))
+      case 'file':
+        return (new FileElementModel(this.formBuilder))
       // case 'autocomplete':
       //   return (new AutocompleteElementModel(this.formBuilder))
     }

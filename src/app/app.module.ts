@@ -15,7 +15,7 @@ import { InputComponent } from './config-forms/Components/input-element/input.co
 // import { AutocompleteComponent } from './config-forms/Components/autocomplete-element/autocomplete.component';
 import { CheckboxComponent } from './config-forms/Components/checkbox-element/checkbox.component';
 import { DatepickerComponent } from './config-forms/Components/datepicker-element/datepicker.component';
-// import { FileComponent } from './config-forms/Components/file-element/file.component';
+import { FileComponent } from './config-forms/Components/file-element/file.component';
 import { RadioComponent } from './config-forms/Components/radio-element/radio.component';
 import { SelectComponent } from './config-forms/Components/select-element/select.component';
 // import { SliderComponent } from './config-forms/Components/slider-element/slider.component';
@@ -28,6 +28,8 @@ import { FormlyMatTextAreaModule } from '@ngx-formly/material/textarea';
 // import { FormlyMatSliderModule } from '@ngx-formly/material/slider';
 import { FormlyMatToggleModule } from '@ngx-formly/material/toggle';
 import { HAMMER_LOADER } from '@angular/platform-browser';
+import { FileValueAccessor } from './formly-custom-types/file/file-value-accessor';
+import { FormlyFieldFile } from './formly-custom-types/file/file-type.component';
 
 
 
@@ -44,13 +46,15 @@ import { HAMMER_LOADER } from '@angular/platform-browser';
     // AutocompleteComponent,
     CheckboxComponent,
     DatepickerComponent,
-    // FileComponent,
+    FileComponent,
     RadioComponent,
     SelectComponent,
     // SliderComponent,
     TextareaComponent,
     // TimepickerComponent,
-    ToggleComponent
+    ToggleComponent,
+    FileValueAccessor,
+    FormlyFieldFile,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,9 @@ import { HAMMER_LOADER } from '@angular/platform-browser';
     FormsModule,
     ReactiveFormsModule,
     FormlyModule.forRoot({
+      types: [
+        { name: 'file', component: FormlyFieldFile, wrappers: ['form-field'] },
+      ],
       validationMessages: [
         { name: 'required', message: 'This field is required' },
       ],
@@ -80,7 +87,7 @@ import { HAMMER_LOADER } from '@angular/platform-browser';
     // AutocompleteComponent,
     CheckboxComponent,
     DatepickerComponent,
-    // FileComponent,
+    FileComponent,
     RadioComponent,
     SelectComponent,
     // SliderComponent,
