@@ -1,0 +1,33 @@
+<!-- app.component.html -->
+
+<div class="container">
+    <div class="toolbox" cdkDropList #toolboxList="cdkDropList" [cdkDropListData]="toolboxItems"
+        [cdkDropListConnectedTo]="[canvasList]">
+        <h2>Form Elements</h2>
+        <div class="form-elements" *ngFor="let item of toolboxItems" cdkDrag>
+            <!-- Toolbox with form field types -->
+            <div class="form-element" (click)="addItem(item.type)" cdkDragHandle>
+                {{ item.label }}
+            </div>
+        </div>
+    </div>
+    <!-- <div class="canvas" cdkDropList #canvasList="cdkDropList" [cdkDropListData]="canvasItems"
+    (cdkDropListDropped)="onDrop($event)" [cdkDropListConnectedTo]="[toolboxList]"> -->
+    <div class="canvas" cdkDropList #canvasList="cdkDropList" [cdkDropListData]="canvasItems"
+        (cdkDropListDropped)="onDrop($event)" [cdkDropListConnectedTo]="[toolboxList]">
+        <h2>Form Canvas</h2>
+        <!-- Canvas where users can drop form elements -->
+        <div class="form-element" *ngFor="let item of canvasItems" cdkDrag>
+            <label (click)="toggleConfigForm(item.formGroup)">{{ item.label }}</label>
+            <!-- <input-element *ngIf="profileForm.hidden" [form]="profileForm">
+      </input-element> -->
+            <button (click)="removeElement(item)" class="btn-remove">Remove</button>
+            <config-form [form]="item.formGroup" [type]="item.formComponent" *ngIf="item.formGroup.hidden">
+
+            </config-form>
+        </div>
+
+    </div>
+</div>
+<button (click)="formPreview()">Form Preview</button>
+<form-preview [form]="previewForm" [fields]="fields"> </form-preview>

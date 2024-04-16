@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core"
+import { Component, Input, OnInit } from "@angular/core"
 import { FormGroup } from "@angular/forms"
 import { element } from "protractor";
 import { IConfigElement } from "../config-element.interface";
@@ -7,7 +7,7 @@ import { IConfigElement } from "../config-element.interface";
     templateUrl: './input.component.html',
     styleUrls: ['./input.component.css']
 })
-export class InputComponent implements IConfigElement {
+export class InputComponent implements OnInit {
     @Input()
     form: FormGroup;
 // color
@@ -22,7 +22,11 @@ export class InputComponent implements IConfigElement {
 // text
 // time
 // url
-// week
+    // week
+    
+    ngOnInit(): void {
+        console.log(this.form);
+    }
     inputTypes: any[] = [
         { label: 'Text', value: 'text' },
         { label: 'Password', value: 'password' },
@@ -39,6 +43,8 @@ export class InputComponent implements IConfigElement {
         // { label: 'File', value: 'file' },
 
     ];
+
+    minMaxLengthTypes = ['text', 'password', 'number', 'email', 'tel'];
     onSubmit() {
         console.log(this.form.value);
     }

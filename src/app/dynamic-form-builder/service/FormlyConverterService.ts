@@ -77,10 +77,54 @@ export class FormlyConverterService {
                 formlyConfig.templateOptions.attributes = attributes;
             }
         }
-        console.log("config object", formlyConfig);
+
+        console.log("config object", JSON.stringify(formlyConfig));
 
         return formlyConfig;
 
 
+    }
+
+
+
+    assignJsonValuesToForm(jsonField: any, formGroup: FormGroup): void {
+
+        const formlyConfig = jsonField;
+
+        // Assign key and type values to the form group
+        formGroup.get('key').setValue(formlyConfig.key);
+        formGroup.get('type').setValue(formlyConfig.type);
+
+        // Assign templateOptions values to the form group
+        const templateOptionsGroup = formGroup.get('templateOptions') as FormGroup;
+        Object.keys(formlyConfig.templateOptions).forEach(key => {
+            templateOptionsGroup.get(key).setValue(formlyConfig.templateOptions[key]);
+        });
+
+        // Assign attributes values to the form group
+        if (formlyConfig.templateOptions.attributes) {
+            const attributesGroup = templateOptionsGroup.get('attributes') as FormGroup;
+            Object.keys(formlyConfig.templateOptions.attributes).forEach(key => {
+                attributesGroup.get(key).setValue(formlyConfig.templateOptions.attributes[key]);
+            });
+        }
+
+        // Assign options values to the form group
+        if (formlyConfig.templateOptions.options) {
+            const optionsGroup = templateOptionsGroup.get('options') as FormGroup;
+            formlyConfig.templateOptions.options.forEach((option: any, index: number) => {
+                Object.keys(option).forEach(key => {
+                    optionsGroup.get(`${index}.${key}`).setValue(option[key]);
+                });
+            });
+        }
+
+        // Assign datepickerOptions values to the form group
+        if (formlyConfig.templateOptions.datepickerOptions) {
+            const datepickerOptionsGroup = templateOptionsGroup.get('datepickerOptions') as FormGroup;
+            Object.keys(formlyConfig.templateOptions.datepickerOptions).forEach(key => {
+                datepickerOptionsGroup.get(key).setValue(formlyConfig.templateOptions.datepickerOptions[key]);
+            });
+        }
     }
 }

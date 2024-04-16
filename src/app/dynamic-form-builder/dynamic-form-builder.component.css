@@ -1,0 +1,53 @@
+/* app.component.css */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toolbox {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.toolbox h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.form-elements {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-element {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.canvas {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.canvas h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.form-canvas {
+    min-height: 300px;
+    /* Adjust height as needed */
+    border: 1px dashed #ccc;
+    padding: 10px;
+}
+
+.btn-remove {
+    float: right;
+}

@@ -22,26 +22,31 @@
                 <option *ngFor="let option of inputTypes" [value]="option.value">{{option.label}}</option>
             </select>
         </label>
-        <label>
-            Min:
-            <input type="number" formControlName="min">
-        </label>
-        <label>
-            Max:
-            <input type="number" formControlName="max">
-        </label>
-        <label>
-            Min Length:
-            <input type="number" formControlName="minLength">
-        </label>
-        <label>
-            Max Length:
-            <input type="number" formControlName="maxLength">
-        </label>
-        <label>
-            Pattern:
-            <input type="text" formControlName="pattern">
-        </label>
+        <div *ngIf="form.controls['templateOptions'].value.type === 'number'">
+            <label>
+                Min:
+                <input type="number" formControlName="min">
+            </label>
+            <label>
+                Max:
+                <input type="number" formControlName="max">
+            </label>
+        </div>
+        <div *ngIf="minMaxLengthTypes.includes(form.controls['templateOptions'].value.type)">
+            <label>
+                Min Length:
+                <input type="number" formControlName="minLength">
+            </label>
+            <label>
+                Max Length:
+                <input type="number" formControlName="maxLength">
+            </label>
+            <label>
+                Pattern:
+                <input type="text" formControlName="pattern">
+            </label>
+        </div>
+
         <label>
             Description:
             <input type="text" formControlName="description">
@@ -50,7 +55,7 @@
             Readonly:
             <input type="checkbox" formControlName="readonly">
         </label>
-        <div formGroupName="attributes">
+        <div *ngIf="form.controls['templateOptions'].value.type === 'text'" formGroupName="attributes">
             <label>
                 Spellcheck:
                 <input type="checkbox" formControlName="spellcheck">
